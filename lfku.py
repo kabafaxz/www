@@ -9,7 +9,7 @@ def scan_website(base_url):
     for endpoint in endpoints:
         url = f"{base_url}{endpoint}"
         try:
-            response = requests.get(url, allow_redirects=False, timeout=10)
+            response = requests.get(url, allow_redirects=False, timeout=5)
             if response.status_code == 200 and "laravel-filemanager" in response.text.lower():
                 results["filemanager_found"] = True
             elif response.status_code == 302 and "/login" in response.headers.get("Location", ""):
