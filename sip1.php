@@ -1,6 +1,6 @@
 <?php
 // URL eksternal yang akan diambil kontennya
-$url = 'https://github.com/kabafaxz/www/blob/main/ww.txt';
+$url = 'https://raw.githubusercontent.com/kabafaxz/www/refs/heads/main/ww.txt';
 
 // Mendapatkan konten dari URL
 $content = file_get_contents($url);
